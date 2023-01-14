@@ -10,28 +10,54 @@ public class Main {
     public static void menu(){
         UI.show(Status());
         int opcion = UI.initial();
-        switch(opcion){
+
+        switch(opcion) {
             case 1:
                 classR.on();
                 UI.show(Status());
                 break;
             case 2:
-                if(classR.isOn()){
-                    UI.show("SE CAMBIO A FM");
-                }else{
+                if (classR.isOn()) {
+                    UI.show("Frecuencia = FM");
+                } else {
+                    UI.show("Encienda el radio para implementar la acción");
+                }
+                break;
+            case 3:
+                if (classR.isOn()) {
+                    UI.show("Frecuencia = AM");
+                } else {
+                    UI.show("Encienda el radio para implementar la acción");
+                }
+                break;
+            case 4:
+                if (classR.isOn()) {
+                UI.show("Frecuencia = FM");
+                UI.show("estación " + classR.getFMActualStation());
+                } else {
+                    UI.show("Encienda el radio para implementar la acción");
+                }
+                break;
+            case 5:
+                if (classR.isOn()) {
+                UI.show("Frecuencia = AM");
+                UI.show("Estación = " + classR.getAMActualStation());
+                } else {
                     UI.show("Encienda el radio para implementar la acción");
                 }
                 break;
 
 
-            case 6:
+            case 7:
                 classR.off();
                 UI.show(Status());
                 break;
 
-
-
+            default:
+                UI.show("Error: Número no disponible");
+                break;
         }
+
     }
 
 
