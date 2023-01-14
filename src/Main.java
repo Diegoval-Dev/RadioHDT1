@@ -1,4 +1,7 @@
+import java.text.DecimalFormat;
+
 public class Main {
+
 
     public static ClassRadio classR = new ClassRadio();
     public static void main(String[] args) {
@@ -8,6 +11,8 @@ public class Main {
     }
 
     public static void menu(){
+        DecimalFormat decimal = new DecimalFormat("0.0");
+
         UI.show(Status());
         int opcion = UI.initial();
 
@@ -25,7 +30,7 @@ public class Main {
                 break;
             case 3:
                 if (classR.isOn()) {
-                    UI.show("Frecuencia = AM");
+                    UI.show("Frecuencia AM");
                 } else {
                     UI.show("Encienda el radio para implementar la acción");
                 }
@@ -33,7 +38,7 @@ public class Main {
             case 4:
                 if (classR.isOn()) {
                 UI.show("Frecuencia = FM");
-                UI.show("estación " + classR.getFMActualStation());
+                UI.show("Estación = " +  decimal.format(classR.getFMActualStation()));
                 } else {
                     UI.show("Encienda el radio para implementar la acción");
                 }
