@@ -1,20 +1,16 @@
 
 public class ClassRadio implements IRadio{
-    private boolean estado = false;
+    private boolean estado = true;
     private double emisoraAM = 10;
     private double emisoraFM = 0.2;
 
 
     @Override
-    public boolean on() {
-        return estado;
-
-
+    public void on() {
     }
 
     @Override
     public void off() {
-
     }
 
     /***
@@ -24,12 +20,12 @@ public class ClassRadio implements IRadio{
     @Override
     public boolean isOn() {
         if(this.estado){
-            this.estado = false;
+            estado = false;
         }
         else{
-            this.estado = true;
+            estado = true;
         }
-        return true;
+        return estado;
     }
 
     /***
@@ -68,6 +64,7 @@ public class ClassRadio implements IRadio{
 
     @Override
     public void setFMActualStation(double actualStation) {
+
 
     }
 
