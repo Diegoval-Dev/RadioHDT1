@@ -12,18 +12,22 @@ public class Main {
         int opcion = UI.initial();
         switch(opcion){
             case 1:
-                classR.isOn();
+                classR.on();
                 UI.show(Status());
                 break;
             case 2:
-                classR.isOn();
+                if(classR.isOn()){
                     UI.show("SE CAMBIO A FM");
+                }else{
+                    UI.show("Encienda el radio para implementar la acción");
+                }
                 break;
 
 
-
-
-
+            case 6:
+                classR.off();
+                UI.show(Status());
+                break;
 
 
 
