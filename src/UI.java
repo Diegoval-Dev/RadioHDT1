@@ -9,9 +9,10 @@ public class UI {
         System.out.println("1. Encender radio");
         System.out.println("2. Cambiar de frecuencia FM");
         System.out.println("3. Cambiar de frecuencia AM");
-        System.out.println("4. Cambiar de emisora ");
-        System.out.println("5. Seleccionas emisora");
-        System.out.println("6. Apagar radio");
+        System.out.println("4. Cambiar de emisora FM");
+        System.out.println("5. Cambiar de emisora AM");
+        System.out.println("6. Guardar emisora");
+        System.out.println("7. Apagar radio");
         return scanner.nextInt();
     }
 
