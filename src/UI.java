@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class UI {
 
+    /**
+     * Mensaje inicial
+     * @return opccion elegida por el usuario
+     */
     public static int initial(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Seleccione el modo a implementar");
@@ -16,6 +20,10 @@ public class UI {
         return scanner.nextInt();
     }
 
+    /**
+     * Mensaje mandado a consola
+     * @param msg mensaje
+     */
     public static void show(String msg){
         System.out.println(msg);
     }

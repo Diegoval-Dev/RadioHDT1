@@ -4,12 +4,20 @@ public class Main {
 
 
     public static ClassRadio classR = new ClassRadio();
+
+    /**
+     * Manda a llamar al menu
+     * @param args
+     */
     public static void main(String[] args) {
         while(true){
             menu();
         }
     }
 
+    /**
+     * Instrucciones del menu principal
+     */
     public static void menu(){
         DecimalFormat decimal = new DecimalFormat("0.0");
 
@@ -52,6 +60,8 @@ public class Main {
                 }
                 break;
 
+            //Faltante opcción 6
+            case 6:
 
             case 7:
                 classR.off();
@@ -65,8 +75,10 @@ public class Main {
 
     }
 
-
-
+    /**
+     * Muestra el estado del radio
+     * @return regresa el estado del radio
+     */
     public static String Status() {
             String estado2;
             if (classR.isOn()) {

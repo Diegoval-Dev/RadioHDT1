@@ -1,15 +1,15 @@
-import java.text.DecimalFormat;
-
 public class ClassRadio implements IRadio{
     private boolean estado = false;
     private int emisoraAM = 520;
     private double emisoraFM = 87.7;
 
 
+
     @Override
     public void on() {
         estado = true;
     }
+
 
     @Override
     public void off() {
@@ -49,10 +49,13 @@ public class ClassRadio implements IRadio{
 
     }
 
+    /**
+     * aumenta la emision en multiplos de 0.2
+     * @return emisoraFM
+     */
     @Override
     public double getFMActualStation() {
         this.emisoraFM = this.emisoraFM + 0.2;
-
         return emisoraFM;
     }
 
@@ -61,11 +64,17 @@ public class ClassRadio implements IRadio{
     }
 
 
+    /**
+     * aumenta la emision en multiplos de 10
+     * @return emisoraAM
+     */
     @Override
     public int getAMActualStation() {
         this.emisoraAM = this.emisoraAM + 10;
         return emisoraAM;
     }
+
+
     @Override
     public void setAMActualStation(int actualStation) {
     }
