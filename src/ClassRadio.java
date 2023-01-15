@@ -4,17 +4,20 @@ public class ClassRadio implements IRadio{
     private double emisoraFM = 87.7;
 
     private String frecuencia = "FM";
-
     private int[] favoritasAM = new int[11];
     private double[] favoritasFM = new double[11];
 
-
+    /**
+     * Metodo para encender la radio
+     */
     @Override
     public void on() {
         estado = true;
     }
 
-
+    /**
+     * metodo para apagar la radio
+     */
     @Override
     public void off() {
         estado = false;
@@ -38,11 +41,18 @@ public class ClassRadio implements IRadio{
         this.frecuencia = freq;
     }
 
+    /**
+     * Obtiene la frecuencia actual de la radio
+     * @return
+     */
     @Override
     public String getFrequence() {
         return this.frecuencia;
     }
 
+    /**
+     * Avanza una estacion, ya sea en AM o FM
+     */
     @Override
     public void Forward() {
         if(this.frecuencia.equals("FM")){
@@ -52,6 +62,9 @@ public class ClassRadio implements IRadio{
         }
     }
 
+    /**
+     * Regresa una estacion
+     */
     @Override
     public void Backward() {
         if(this.frecuencia.equals("FM")){
@@ -76,7 +89,7 @@ public class ClassRadio implements IRadio{
     }
 
     /**
-     * aumenta la emision en multiplos de 0.2
+     * Obtiene la emisora FM actual
      * @return emisoraFM
      */
     @Override
@@ -84,14 +97,16 @@ public class ClassRadio implements IRadio{
         return emisoraFM;
     }
 
+    /**
+     * modifica la frecuencia FM actual
+     * @param actualStation recibe la frecuencia a poner
+     */
     @Override
     public void setFMActualStation(double actualStation) {
         this.emisoraFM = actualStation;
     }
-
-
     /**
-     * aumenta la emision en multiplos de 10
+     *Obtiene la emisora AM actual
      * @return emisoraAM
      */
     @Override
@@ -99,31 +114,52 @@ public class ClassRadio implements IRadio{
         return emisoraAM;
     }
 
-
+    /**
+     * Modifica la emisora AM actual
+     * @param actualStation la nueva emisora AM
+     */
     @Override
     public void setAMActualStation(int actualStation) {
         this.emisoraAM = actualStation;
     }
 
+    /**
+     * Guarda una emisora FM en favoritos
+     * @param actualStation estacion actual a guardar
+     * @param slot subindice a guardar
+     */
     @Override
     public void saveFMStation(double actualStation, int slot) {
         this.favoritasFM[slot] = actualStation;
     }
 
+    /**
+     * guarda una emisora AM en favoritas
+     * @param actualStation emisora actual a guardar
+     * @param slot subindice a guardar
+     */
     @Override
     public void saveAMStation(int actualStation, int slot) {
         this.favoritasAM[slot] = actualStation;
     }
 
+    /**
+     * obtiene la emisora segun el slot que recibe
+     * @param slot numero de subindice de la emisora
+     * @return la emisora
+     */
     @Override
     public double getFMSlot(int slot) {
         return this.favoritasFM[slot];
     }
 
+    /**
+     * obtiene la emisora segun el slot que recibe
+     * @param slot numero de subindice de la emisora
+     * @return la emisora
+     */
     @Override
     public int getAMSlot(int slot) {
         return this.favoritasAM[slot];
     }
-
-
 }
