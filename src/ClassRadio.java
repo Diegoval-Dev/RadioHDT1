@@ -3,6 +3,10 @@ public class ClassRadio implements IRadio{
     private int emisoraAM = 520;
     private double emisoraFM = 87.7;
 
+    private String frecuencia = "FM";
+
+    private int[] favoritasAM = new int[11];
+    private double[] favoritasFM = new double[11];
 
 
     @Override
@@ -31,22 +35,44 @@ public class ClassRadio implements IRadio{
      */
     @Override
     public void setFrequence(String freq) throws Exception {
-
+        this.frecuencia = freq;
     }
 
     @Override
     public String getFrequence() {
-        return null;
+        return this.frecuencia;
     }
 
     @Override
     public void Forward() {
-
+        if(this.frecuencia.equals("FM")){
+            this.emisoraFM = this.emisoraFM + 0.2;
+        } else if (this.frecuencia.equals(("AM"))) {
+            this.emisoraAM = this.emisoraAM + 10;
+        }
     }
 
     @Override
     public void Backward() {
-
+        if(this.frecuencia.equals("FM")){
+            if(emisoraFM >= 0.02){
+                this.emisoraFM = this.emisoraFM - 0.2;
+            }
+            else{
+                /*aqui tiraria una exepcion de que la frecuencia no puede ser negativa, pero
+                como no estaba contemplado solo lo deje en blanco
+                */
+            }
+        } else if (this.frecuencia.equals(("AM"))) {
+            if(emisoraAM >= 10){
+                this.emisoraAM = this.emisoraAM - 10;
+            }
+            else {
+                /*aqui tiraria una exepcion de que la frecuencia no puede ser negativa, pero
+                como no estaba contemplado solo lo deje en blanco
+                */
+            }
+        }
     }
 
     /**
@@ -55,12 +81,12 @@ public class ClassRadio implements IRadio{
      */
     @Override
     public double getFMActualStation() {
-        this.emisoraFM = this.emisoraFM + 0.2;
         return emisoraFM;
     }
 
     @Override
     public void setFMActualStation(double actualStation) {
+        this.emisoraFM = actualStation;
     }
 
 
@@ -70,33 +96,33 @@ public class ClassRadio implements IRadio{
      */
     @Override
     public int getAMActualStation() {
-        this.emisoraAM = this.emisoraAM + 10;
         return emisoraAM;
     }
 
 
     @Override
     public void setAMActualStation(int actualStation) {
+        this.emisoraAM = actualStation;
     }
 
     @Override
     public void saveFMStation(double actualStation, int slot) {
-
+        this.favoritasFM[slot] = actualStation;
     }
 
     @Override
     public void saveAMStation(int actualStation, int slot) {
-
+        this.favoritasAM[slot] = actualStation;
     }
 
     @Override
     public double getFMSlot(int slot) {
-        return 0;
+        return this.favoritasFM[slot];
     }
 
     @Override
     public int getAMSlot(int slot) {
-        return 0;
+        return this.favoritasAM[slot];
     }
 
 
